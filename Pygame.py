@@ -12,15 +12,18 @@ pygame.display.set_caption("My First Game")
 #pygame.draw.rect()
 done = False
 clock = pygame.time.Clock()
-
+keys = pygame.key.get_pressed()
 while not done:
     clock.tick(10)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             done = True
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_SPACE:
+                score+=1
+    
             
-    if pygame.key.get_pressed() == pygame.key.name(32):
-        score+=1
+    
 
     screen.fill(White)
     pygame.draw.rect(screen, Black, [300, 300,  200, 200])
